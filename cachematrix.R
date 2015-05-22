@@ -1,6 +1,11 @@
-## overview:  makeCacheMatrix creates a special "matrix" and cacheSolve computes the matrix inverse of
-##  special matrix
+# Coursera - JHU - R Programming - Programming Assignment 2 
+# Caching the Inverse of a Matrix
 
+## overview:  makeCacheMatrix creates a special "matrix" and 
+## cacheSolve computes the matrix inverse of special matrix
+
+## makeCacheMatrix: This function creates a special "matrix" object that can cache 
+## its inverse.
 ## makeCacheMatrix creates a special "matrix", which is really a list 
 ## containing a function to
 ##    set the value of the matrix
@@ -20,15 +25,11 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get, setMI = setMI, getMI = getMI)
 }
 
+# cacheSolve: This function computes the inverse of the special "matrix" returned 
+# by makeCacheMatrix above. If the inverse has already been calculated (and the matrix 
+# has not changed), then the cachesolve should retrieve the inverse from the cache.
 
-## The following function calculates the matrix inverse (MI) of the special "matrix" 
-## created with the above function. 
-## However, it first checks to see if the matrix inverse has already been calculated. If so, 
-## it gets the matrix inverse from the cache and skips the computation. Otherwise, it 
-## calculates the matrix inverse of the data and sets the value of the matrix inverse in 
-## the cache via the setMI function.
-
-cacheSolve <- function(x, ...) {
+cachesolve <- function(x, ...) {
   m <- x$getMI()
   if(!is.null(m)) {
     message("getting cached data")
